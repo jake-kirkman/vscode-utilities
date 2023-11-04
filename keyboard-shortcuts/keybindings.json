@@ -1,0 +1,46 @@
+[
+    {
+        "key": "ctrl+alt+s",
+        "command": "sfdx.force.source.deploy.source.path"
+    },
+    {
+        "key": "ctrl+alt+r",
+        "command": "sfdx.force.internal.refreshsobjects"
+    },
+    {
+        "key": "ctrl+shift+space",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "langId":"apex",
+            "name": "Null check inverter SelectedText"
+        }
+    },
+    {
+        "key": "ctrl+shift+space",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "langId":"typescript",
+            "name": "Null check inverter SelectedText"
+        }
+    },
+    {
+        "key": "ctrl+shift+enter",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "langId":"apex",
+            "name": "Finish New Object"
+        }
+    },
+    {
+        "key": "ctrl+alt+enter",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus",
+        "args": {
+            "langId":"apex",
+            "name": "Deserialize To Object"
+        }
+    }
+]
