@@ -1,0 +1,24 @@
+{
+    "CommentBreaker" : {
+        "prefix" : "blockCom",
+        "body" : [
+            "$BLOCK_COMMENT_START=========================================================",
+            "        ${1:SECTION}",
+            "=========================================================$BLOCK_COMMENT_END"
+        ]
+    },
+    "CommentSubSection" : {
+        "prefix" : "subBlockCom",
+        "body" : [
+            "$BLOCK_COMMENT_START===================[ ${1:SECTION} ]====================$BLOCK_COMMENT_END"
+        ]
+    },
+    "NewUUID": {
+        "prefix": "newUUID",
+        "body": "$UUID"
+    },
+    "IncrementingNumber": {
+        "prefix": "incrementingNumber",
+        "body": "$CURSOR_NUMBER"
+    }
+}

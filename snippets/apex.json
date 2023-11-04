@@ -1,0 +1,239 @@
+{
+    // https://code.visualstudio.com/docs/editor/userdefinedsnippets
+    "debug" : {
+        "prefix": ["debug", "log"],
+        "body": "System.debug('$1');"
+    },
+    "debugItem" : {
+        "prefix": ["debugItem", "logItem"],
+        "body": "System.debug('##ITEM : ${1:Item} : ' + ${2:CodeItem});"
+    },
+    "newMap" : {
+        "prefix" : "newMap",
+        "body": [
+            "Map<${1:Object}, ${2:Object}> map${3:Items} = new map<${1:Object}, ${2:Object}>();"
+        ],
+    },
+    "newMap2" : {
+        "prefix" : "newMapMulti",
+        "body": [
+            "Map<${1:Object}, Map<${2:Object}, ${3:Object}>> map${4:Name} = new map<${1:Object}, Map<${2:Object}, ${3:Object}>>();"
+        ],
+    },
+    "VFApexMessage" : {
+        "prefix" : "vfmsg",
+        "body": [
+            "ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.${1|CONFIRM,ERROR,FATAL,INFO,WARNING|}, '$2'));"
+        ],
+        "description" : "Output to the VF Page <Apex:PageMessages> tag"
+    },
+    "LWC-Apex AuraEnabled Wrapper" : {
+        "prefix" : "lwcwrap",
+        "body" : [
+            "@testVisible",
+            "private class ${1:LWC}Wrapper {",
+            "    @AuraEnabled public ${2:String} ${3:id};$0",
+            "}"
+        ],
+        "description" : "Quick Wrapper"
+    },
+    "Trigger Setup" : {
+        "prefix" : "trigTemplate",
+        "body": [
+            "$BLOCK_COMMENT_START=========================================================",
+            "        SCOPED LISTS / MAPS",
+            "=========================================================$BLOCK_COMMENT_END",
+            "",
+            "",
+            "",
+            "$BLOCK_COMMENT_START=========================================================",
+            "        TRIGGER SCOPING",
+            "=========================================================$BLOCK_COMMENT_END",
+            "",
+            "//Before",
+            "if(Trigger.isBefore) {",
+            "    if(Trigger.isInsert) {",
+            "        for(${1:SObject} record : Trigger.new) {",
+            "            ",
+            "        }",
+            "    } else if(Trigger.isUpdate) {",
+            "        for(${1:SObject} record : Trigger.new) {",
+            "            ${1:SObject} oldRecord = Trigger.oldMap.get(record.Id);",
+            "            ",
+            "        }",
+            "    }",
+            "}",
+            "",
+            "//After",
+            "if(Trigger.isAfter) {",
+            "    if(Trigger.isInsert) {",
+            "        for(${1:SObject} record : Trigger.new) {",
+            "            ",
+            "        }",
+            "    } else if(Trigger.isUpdate) {",
+            "        for(${1:SObject} record : Trigger.new) {",
+            "            ${1:SObject} oldRecord = Trigger.oldMap.get(record.Id);",
+            "            ",
+            "        }",
+            "    }",
+            "}",
+            "",
+            "$BLOCK_COMMENT_START=========================================================",
+            "        PROCESSES",
+            "=========================================================$BLOCK_COMMENT_END",
+            ""
+        ],
+        "description" : "Trigger Setup Block of code"
+    },
+    "Null check inverter" : {
+        "prefix" : "invertNull",
+        "body" : "${CLIPBOARD/([A-Za-z0-9_\\-\\.\\(\\)\\[\\]\\']+)([ =!><]+)([A-Za-z0-9_\\-\\.\\(\\)\\[\\]\\']+)/$3$2$1/}",
+    },
+    "Null check inverter SelectedText" : {
+        "prefix" : "SelectedTextInvert",
+        "body" : "${TM_SELECTED_TEXT/([A-Za-z0-9_\\-\\.\\(\\)\\[\\]\\']+)([ =!><]+)([A-Za-z0-9_\\-\\.\\(\\)\\[\\]\\']+)/$3$2$1/}",
+    },
+    "TestMethod" : {
+        "prefix" : "testMethod",
+        "body" : [
+            "@isTest",
+            "static void test${1:$CLIPBOARD}() {",
+            "    ",
+            "}"
+        ]
+    },
+    "SOQL to ForLoop" : {
+        "prefix": "ListToLoop",
+        "body": [
+            "${CLIPBOARD/([\t ]+)?List<([.a-zA-Z_-]+)> ([-A-Za-z0-9_]+) = (\\[[\\s\\S]+\\]);/for($2 record : $4) {}/}"
+        ]
+    },
+    "ForLoop to SOQL" : {
+        "prefix": "LoopToList",
+        "body": [
+            "${CLIPBOARD/for\\(([A-Za-z0-9_-]+) ([-A-Za-z0-9_]+) : (\\[[\\s\\S]+\\])\\) {[\\s\\S]+}/List<$1> $2 = $3;/}"
+        ]
+    },
+    "query string" : {
+        "prefix": "queryString",
+        "body": [
+            "String query = '';",
+            "query += 'SELECT Id, $1';",
+            "query += ' FROM $2';",
+            "query += ' WHERE $3';"
+        ]
+    },
+    "Record Type Map - name" : {
+        "prefix": "recordTypeMapName",
+        "body": "Map<String, Schema.RecordTypeInfo> mapName_${3:Object}RecordType = Schema.SObjectType.${1:Account}.getRecordTypeInfosBy${2|DeveloperName,Name|}();"
+    },
+    "Record Type Map - Id" : {
+        "prefix": "recordTypeMapId",
+        "body": "Map<Id, Schema.RecordTypeInfo> mapId_${3:Object}RecordType = Schema.SObjectType.${1:Account}.getRecordTypeInfosById();"
+    },
+    "FieldSet List" : {
+        "prefix": "getFieldSet",
+        "body": "List<Schema.FieldSetMember> fieldSetFields = SObjectType.${1:Account}.FieldSets.${2:Account_FieldSet}.getFields();"
+    },
+    "ApexSharingReason" : {
+        "prefix": "shareReason",
+        "body": "Schema.${1:Object}__Share.RowCause.${2:SHARE_REASON}__c"
+    },
+    "Quick Anon Apex Update": {
+        "prefix": "anonApexUpdate",
+        "body":[
+            "${1:Account} record = [SELECT Id, Name, ${2:FIELD} FROM ${1:Account} WHERE Id = '${3:ID}'];",
+            "record.${2:FIELD} = ${4:Data};",
+            "update record;"
+        ]
+    },
+    "Finish New Object":{
+        "prefix":"finishVar",
+        "body":"${TM_CURRENT_LINE/([\t ]+)?(final )?([_a-zA-Z0-9\\<\\>\\., ]+) ([a-zA-Z0-9_]+) =/new $3();/}"
+    },
+    "Deserialize To Object":{
+        "prefix":"deserVar",
+        "body":"${TM_CURRENT_LINE/([\t ]+)?([_a-zA-Z0-9\\<\\>\\., ]+) ([a-zA-Z0-9_]+) =/($2) JSON.deserialize(STRING, $2.class);/}"
+    },
+    "StringValueOf":{
+        "prefix":"valueOfSelectedString",
+        "body":"String.valueOf(${CLIPBOARD})"
+    },
+    "mapContainsAdd":{
+        "prefix":"mapContainsAdd",
+        "body":[
+            "final ${1:ValueItem} items = ${2:MapVar}.get(${3:Key});",
+            "if(null == items) {",
+            "    items = new ${1:ValueItem}();",
+            "    ${2:MapVar}.put(${3:Key}, items);",
+            "}",
+            "items.add(${4:ItemToAdd});"
+        ]
+    },
+    "UnitTestTemplateError":{
+        "prefix":"utTestBError",
+        "body":[
+            "Test.startTest();",
+            "    try {",
+            "        ${0}",
+            "        System.assert(false, 'Method should have failed but did not');",
+            "    } catch(Exception ex) {",
+            "        System.assert(true);",
+            "    }",
+            "Test.stopTest();"
+        ]
+    },
+    "UnitTestHelperTemplate":{
+        "prefix":"uthTemplate",
+        "body":[
+            "public static ${1:SObject} create${2:Object}(Boolean pInsert) {",
+            "    final ${1:SObject} record;",
+            "",
+            "    record = new ${1:SObject}();",
+            "",
+            "    if(pInsert) {",
+            "        insert record;",
+            "    }",
+            "",
+            "    return record;",
+            "}",
+        ]
+    },
+    "AuraEnabledMethod":{
+        "prefix":"auraEnabledMethod",
+        "body":[
+            "@AuraEnabled",
+            "public static ${1:SObject} ${2:someMethod}(${0}) {",
+            "    try {",
+            "        ",
+            "    } catch(Exception ex) {",
+            "        if(ex instanceof AuraHandledException) throw ex;",
+            "        throw SLSToolkit.wrapException(ex);",
+            "    }",
+            "}",
+        ]
+    },
+    "AuraEnabledProperty":{
+        "prefix":"auraEnabledProperty",
+        "body":[
+            "@AuraEnabled public ${1:String} ${2:Name};"
+        ]
+    },
+    "StringFormat":{
+        "prefix":"stringFormat",
+        "body":[
+            "String.format(",
+            "   ${1:FormatTemplate}",
+            "   new List<String> {",
+            "       ${2:ParamOne}",
+            "   }",
+            ");"
+        ]
+    },
+    "Assert":{
+        "prefix":"assert",
+        "body":[
+            "Assert.${1|areEqual,areNotEqual,isNotNull,isNull,isTrue,isFalse,fail,isInstanceOfType,isNotInstanceOfType|}(${0});"
+        ]
+    }
+}
