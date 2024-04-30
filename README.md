@@ -10,11 +10,11 @@ For the snippets, there's one for each language which coincides with what runnin
 
 # Keyboard Shortcuts:
 
-## Deploy Source To Org
+### Deploy Source To Org
 
 Mapped `CTRL + ALT + S` to deploy the currently viewed file to your Salesforce org. No different from right clicking it in the explorer view and clicking the deploy command
 
-## Refresh Objects
+### Refresh Objects
 
 Mapped `CTRL + ALT + R` to run the refresh objects command so the Apex Language Server has refreshed knowledge of fields etc (e.g intellisense)
 
@@ -22,17 +22,17 @@ Mapped `CTRL + ALT + R` to run the refresh objects command so the Apex Language 
 
 Not a comprehensive list here, but a vague list of the interesting ones. See the JSON directly to view the others.
 
-## Finish Var
+### Finish Var
 Command for it is `finishVar`, but there is a keyboard shortcut which is `CTRL + SHIFT + ENTER` which will use the current line and using RegEx, initialise it. It's using RegEx so still very primitive
 
 ![finishVarGif](/media/finishVar.gif)
 
-## Flip comparison
+### Flip comparison
 Command for it is `invertNull`, but there is a keyboard shortcut which is `CTRL + SHIFT + SPACE` which will activate it on the hightlighted text
  
 ![flipComparisonGif](/media/flipComparison.gif)
 
-## List To Loop / Loop To List
+### List To Loop / Loop To List
 `listToLoop` or `loopToList`, it will use your clipboard as the source for the conversion. It's using RegEx so it's a very primitive conversion
 
 ![listToLoopAndLoopToListGif](/media/listToLoop-and-loopToList.gif)
