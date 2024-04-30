@@ -1,11 +1,11 @@
 [
     {
         "key": "ctrl+alt+s",
-        "command": "sfdx.force.source.deploy.source.path"
+        "command": "sf.deploy.current.source.file"
     },
     {
         "key": "ctrl+alt+r",
-        "command": "sfdx.force.internal.refreshsobjects"
+        "command": "sf.internal.refreshsobjects"
     },
     {
         "key": "ctrl+shift+space",
